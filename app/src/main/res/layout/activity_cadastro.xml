@@ -5,41 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rodape"
-    tools:context=".Login">
+    tools:context=".Cadastro">
 
     <Button
-        android:id="@+id/Cadastrese_login"
-        android:layout_width="117dp"
-        android:layout_height="35dp"
+        android:id="@+id/JaPossui_cadastro"
+        android:layout_width="208dp"
+        android:layout_height="38dp"
         android:background="@android:color/transparent"
         android:elegantTextHeight="false"
         android:fontFamily="@font/inter_semibold"
-        android:onClick="telaCadastro"
-        android:text="Cadastre-se"
+        android:onClick="telaLogin"
+        android:text="Já possui uma conta? Login"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#686767"
         android:textSize="13sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.471" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="203dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.607" />
 
     <EditText
-        android:id="@+id/Email_login"
+        android:id="@+id/Email_cadastro"
         android:layout_width="333dp"
         android:layout_height="46dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/user"
         android:drawablePadding="13dp"
@@ -54,16 +46,59 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="17sp"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/Senha_cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.962"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/CriarConta_cadastro"
+        android:layout_width="333dp"
+        android:layout_height="43dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/inter_semibold"
+        android:onClick="telaLogin"
+        android:text="Criar Conta"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Senha_cadastro"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="177dp"
+        android:layout_height="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/Email_cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintVertical_bias="0.744"
+        app:srcCompat="@drawable/separado2" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="66dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/Email_cadastro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.782"
+        app:srcCompat="@drawable/separado1" />
 
     <EditText
-        android:id="@+id/Senha_login"
+        android:id="@+id/Senha_cadastro"
         android:layout_width="333dp"
         android:layout_height="46dp"
+        android:layout_marginBottom="408dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/password"
         android:drawablePadding="13dp"
@@ -77,51 +112,7 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Email_login"
-        app:layout_constraintTop_toBottomOf="@+id/Email_login"
-        app:layout_constraintVertical_bias="0.046" />
-
-    <Button
-        android:id="@+id/Acessar_login"
-        android:layout_width="333dp"
-        android:layout_height="43dp"
-        android:background="@drawable/custom_input"
-        android:fontFamily="@font/inter_semibold"
-        android:onClick="telaPrincipal"
-        android:text="Acessar"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.399" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="177dp"
-        android:layout_height="23dp"
-        app:layout_constraintBottom_toTopOf="@+id/Email_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.561"
-        app:srcCompat="@drawable/separado2" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="66dp"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/Email_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.607"
-        app:srcCompat="@drawable/separado1" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

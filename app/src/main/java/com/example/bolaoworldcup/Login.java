@@ -18,4 +18,10 @@ public class Login extends AppCompatActivity {
             Intent telaprincipal = new Intent(this, Tela_Principal.class);
             startActivity(telaprincipal);
         }
+
+    public void telaCadastro(View view)
+    {
+        Intent telacadastro = new Intent(this, Cadastro.class);
+        startActivity(telacadastro);
+    }
 }

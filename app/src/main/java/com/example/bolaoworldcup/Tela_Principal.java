@@ -6,6 +6,10 @@ import static com.example.bolaoworldcup.NomePaises.atualizaTimeb;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,10 +17,21 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Tela_Principal extends AppCompatActivity {
+    private SQLiteDatabase bancoDados;
+    public ListView listViewDados;
 
     private Spinner spinner;
     private Spinner spinner2;
@@ -28,6 +43,14 @@ public class Tela_Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_principal);
+
+        listViewDados = (ListView) findViewById(R.id.listViewDados);
+
+        criarBancoDeDados();
+        limpaDados();
+        inserirDados();
+        listarDados();
+
 
         spinner=findViewById(R.id.spinner);
         spinner2=findViewById(R.id.spinner2);
@@ -324,7 +347,86 @@ public class Tela_Principal extends AppCompatActivity {
 
         });
 
+    }
 
+    public void criarBancoDeDados(){
+        try {
+            bancoDados = openOrCreateDatabase("bolaofmu", MODE_PRIVATE, null);
+            bancoDados.execSQL("CREATE TABLE IF NOT EXISTS historico(" + " id INTEGER PRIMARY KEY AUTOINCREMENT " + ", " +
+                    "data VARCHAR " + ",time_casa VARCHAR " + ",time_fora VARCHAR " + ",casa_gols VARCHAR " + ",fora_gols VARCHAR)");
+            bancoDados.close();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void listarDados(){
+        try {
+            bancoDados = openOrCreateDatabase("bolaofmu", MODE_PRIVATE, null);
+            Cursor meuCursor = bancoDados.rawQuery("SELECT id,data,time_casa,time_fora,casa_gols,fora_gols FROM historico",null);
+            ArrayList<String> linhas = new ArrayList<>();
+
+            ArrayAdapter meuAdapter = new ArrayAdapter<String>(
+                    this, android.R.layout.simple_list_item_1,android.R.id.text1,linhas
+            );
+            listViewDados.setAdapter(meuAdapter);
+            meuCursor.moveToFirst();
+            while(meuCursor!=null){
+                linhas.add(meuCursor.getString(1));
+                meuCursor.moveToNext();
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void inserirDados() {
+        try {
+            bancoDados = openOrCreateDatabase("bolaofmu", MODE_PRIVATE, null);
+            String sql = "INSERT INTO historico (data,time_casa,time_fora,casa_gols,fora_gols) VALUES (?,?,?,?,?)";
+            SQLiteStatement stmt = bancoDados.compileStatement(sql);
+
+            String[] other = {"Alemanha","Arábia Saudita","Argentina","Austrália","Bélgica"};
+
+            String original = "29/03/1897\n29/03/1886";
+
+            stmt.bindString(1, other[0]);
+            stmt.executeInsert();
+            stmt.bindString(2, other[1]);
+            stmt.executeInsert();
+            stmt.bindString(3, other[2]);
+            stmt.executeInsert();
+            stmt.bindString(4, other[3]);
+            stmt.executeInsert();
+            stmt.bindString(5, other[4]);
+            stmt.executeInsert();
+
+            stmt.bindString(1, other[0]);
+            stmt.executeInsert();
+            stmt.bindString(2, other[1]);
+            stmt.executeInsert();
+            stmt.bindString(3, other[2]);
+            stmt.executeInsert();
+            stmt.bindString(4, other[3]);
+            stmt.executeInsert();
+            stmt.bindString(5, "teste");
+            stmt.executeInsert();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void limpaDados() {
+        try {
+            bancoDados = openOrCreateDatabase("bolaofmu", MODE_PRIVATE, null);
+            bancoDados.execSQL("DELETE FROM historico");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

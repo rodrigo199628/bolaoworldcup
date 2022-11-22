@@ -18,16 +18,6 @@
         app:srcCompat="@drawable/line" />
 
     <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="409dp"
-        android:layout_height="11dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933"
-        app:srcCompat="@drawable/line"
-        tools:layout_editor_absoluteX="2dp" />
-
-    <ImageView
         android:id="@+id/imageView6"
         android:layout_width="69dp"
         android:layout_height="49dp"
@@ -50,54 +40,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022"
         app:srcCompat="@drawable/separado2" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="45dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.393"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/rodape1_favoritos" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="45dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView12"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/rodape1_compartilhar" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="45dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/rodape1_casa" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="45dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991"
-        app:srcCompat="@drawable/rodape1_engrenagem" />
 
     <TextView
         android:id="@+id/textView4"
@@ -237,14 +179,13 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:fontFamily="@font/inter_semibold"
-        android:text="-"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="#8B1732"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.43" />
@@ -255,14 +196,13 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:fontFamily="@font/inter_semibold"
-        android:text="-"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="#8B1732"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.43" />
@@ -273,7 +213,6 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:fontFamily="@font/inter_semibold"
-        android:text="-"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="#8B1732"
         android:textSize="20sp"
@@ -359,5 +298,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.174" />
+
+    <ListView
+        android:id="@+id/listViewDados"
+        android:layout_width="410dp"
+        android:layout_height="285dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.41" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
