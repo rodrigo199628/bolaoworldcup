@@ -24,7 +24,7 @@ public class Tela_Inicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial);
 
-        BaseCSV.lerCSV(getBaseContext());
+        //BaseCSV.lerCSV(getBaseContext());
 
         //SplashScreen da tela inicial em 4,5 segundos chama a tela de login
         new Handler().postDelayed(new Runnable() {
