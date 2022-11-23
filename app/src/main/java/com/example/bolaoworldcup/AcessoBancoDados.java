@@ -47,7 +47,7 @@ public class AcessoBancoDados{
             String time_fora = c.getString(2);
             String gols_casa = c.getString(3);
             String gols_fora = c.getString(4);
-            buffer.append(" ;"+ "  " + data + "         " + time_casa + "      X       " + time_fora + "        " + gols_casa + ":" + gols_fora + " ");
+            buffer.append(" ;"+ "  " + data + "     " + time_casa + "      X       " + time_fora + "        " + gols_casa + ":" + gols_fora + " ");
         }
         return buffer.toString();
     }
